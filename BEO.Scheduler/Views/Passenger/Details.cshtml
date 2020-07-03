@@ -1,0 +1,64 @@
+﻿@model BEO.Scheduler.Models.PassengerViewModel
+
+@{
+    ViewData["Title"] = "Passenger Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Passenger Details</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>       
+    </dl>
+</div>
+<div>
+    <h4>Appointment Details</h4>
+    <hr/>
+    <dl class="row">
+        @{
+            if (Model.Appointment != null)
+            {
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Appointment.AppointmentDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Appointment.AppointmentDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Appointment.Status)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Appointment.Status)
+                </dd>
+            }
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

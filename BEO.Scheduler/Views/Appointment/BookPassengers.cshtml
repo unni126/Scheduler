@@ -1,0 +1,70 @@
+﻿@model BEO.Scheduler.Models.BookPassengersViewModel
+
+@{
+    ViewData["Title"] = "Book Passengers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Book Passengers</h1>
+<p>Alert! If any of the passenger already have an appointment, scheduling the new appointment will result in an auto opt-out from the existing appointment.</p>
+<form asp-action="BookPassengers">
+    @Html.HiddenFor(model => model.AppointmentId)
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    FirstName
+                </th>
+                <th>
+                    LastName
+                </th>
+                <th>
+                    Weight
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                for (int index = 0; index < Model.Passengers.Count; index++)
+                {
+                    <tr>
+                        <td>
+
+                            @Html.HiddenFor(model => model.Passengers[index].Id)
+                            @Html.HiddenFor(model => model.Passengers[index].Weight)
+                            @Html.HiddenFor(model => model.Passengers[index].FirstName)
+                            @Html.HiddenFor(model => model.Passengers[index].LastName)
+                            @Html.CheckBoxFor(model => model.Passengers[index].IsSelected)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Passengers[index].FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Passengers[index].LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Passengers[index].Weight)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Passengers[index].Status)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    @if (Model.Passengers.Count > 0)
+    {
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+    </div>
+    }
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

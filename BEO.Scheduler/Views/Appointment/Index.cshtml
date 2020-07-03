@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BEO.Scheduler.Models.AppointmentViewModel>
+
+@{
+    ViewData["Title"] = "Appointments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Appointments</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if (item.Status != BEO.Scheduler.Core.Helpers.AppointmentStatus.Denied)
+                    {
+                       <text>|</text>  <a asp-action="BookPassengers" asp-route-id="@item.Id">Book Passengers</a>
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

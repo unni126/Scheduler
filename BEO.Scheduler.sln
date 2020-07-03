@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BEO.Scheduler", "BEO.Scheduler\BEO.Scheduler.csproj", "{960B9E73-7117-4959-8F01-73C71F468A57}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Core", "Scheduler.Core\Scheduler.Core.csproj", "{5369CBAC-B43B-4D0A-81F1-A2D4FF60C304}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{960B9E73-7117-4959-8F01-73C71F468A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960B9E73-7117-4959-8F01-73C71F468A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960B9E73-7117-4959-8F01-73C71F468A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960B9E73-7117-4959-8F01-73C71F468A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5369CBAC-B43B-4D0A-81F1-A2D4FF60C304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5369CBAC-B43B-4D0A-81F1-A2D4FF60C304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5369CBAC-B43B-4D0A-81F1-A2D4FF60C304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5369CBAC-B43B-4D0A-81F1-A2D4FF60C304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F62CE80C-FC28-4300-A715-E0020044BFE6}
+	EndGlobalSection
+EndGlobal

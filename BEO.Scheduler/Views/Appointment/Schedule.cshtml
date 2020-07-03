@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BEO.Scheduler.Models.AppointmentViewModel>
+
+@{
+    ViewData["Title"] = "Schedule Appointment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Schedule Appointment</h1>
+@ViewBag.Error
+
+<p>Alert! If you already have an appointment, scheduling the new appointment will result in an auto opt-out from the existing appointment.</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <form asp-action="Schedule">
+                        <input type="hidden" value="@ViewBag.passengerId" name="passengerId" />
+                        <input type="hidden" value="@item.Id" name="appointmentId" />
+                        <input type="submit" value="Schedule" class="btn btn-primary" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Index" asp-controller="Passenger">Back to List</a>
+</div>
